@@ -1,7 +1,10 @@
 import Vector from './lib/Vector'
+import io from 'socket.io-client'
 
 function CanvasState(canvas)
 {
+  var socket = io();
+
   this.canvas = canvas;
   this.width = canvas.width;
   this.height = canvas.height;
@@ -53,6 +56,8 @@ function CanvasState(canvas)
         theState.dragging = true;
         theState.selection = selectedCard;
         theState.valid = false;
+
+        socket.emit('chat message', 'testing');
 
         //theState.animateTo(selectedCard, (new Date()).getTime(), 200, 200);
         return;
