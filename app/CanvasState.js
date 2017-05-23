@@ -45,7 +45,7 @@ function CanvasState(canvas)
     console.log(mouse);
     
     for(let i = cards.length - 1; i >= 0; i--){
-      if (cards[i].contains(mx, my)){
+      if (cards[i].Contains(mx, my)){
         let selectedCard = cards[i];
         // Keep track of where in the object we clicked so we can move it smoothly (see mousemove)
         theState.dragoffx = mx - selectedCard.x;
@@ -144,7 +144,7 @@ CanvasState.prototype.draw = function(){
                 ctx.translate(-card.x -(card.w/2), -card.y - (card.h/2));
             }            
             
-            card.draw(ctx);
+            card.Draw(ctx);
             
             ctx.restore();
             console.log('Card: ' + card.x + ' ' + card.y + ' ' + card.rotation);
